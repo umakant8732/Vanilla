@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+
+    const createdDiv = document.createElement('div');
+    //here we created a div called div.
+
+    
+    createdDiv.className = "main";
+    createdDiv.id = "divId";
+    createdDiv.title = "mainDiv";
+
+    createdDiv.style.backgroundColor = "orange";
+    createdDiv.style.padding = "12px";
+    //here we added some attributes
+
+    const textNode =  document.createTextNode("This is Umakant");
+    createdDiv.appendChild(textNode);
+
+    //here we created a text node and added into the created div element
+
+    document.body.appendChild(createdDiv);
+    console.log(createdDiv);
+
+</script>
+
+</html>

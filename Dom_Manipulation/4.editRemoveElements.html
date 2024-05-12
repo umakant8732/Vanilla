@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="background-color: black; color:white">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+
+
+//logic for add languages
+    const addLanguage = (language) => {
+        const ulElement = document.querySelector('.language'); //here we select ul from html page
+        const li = document.createElement('li'); //here we create an element called li
+        const textNode = document.createTextNode(`${language}`); //here we create textNode with entered parameter
+        li.appendChild(textNode); //we added that textNode into li element
+        ulElement.appendChild(li); //we added that li element into that ul element
+    }
+
+    addLanguage("Ruby on Rails");
+    addLanguage("Laravel");
+    addLanguage("Python");
+
+//logic for edit values
+//one way -> optimize
+const selectedLanguage = document.querySelector("li:nth-child(4)"); //selected 4th child from li using pseudo selectors
+const newLi = document.createElement("li");
+newLi.textContent = "Bun Js";
+selectedLanguage.replaceWith(newLi);
+
+//another way
+const firstLanguage = document.querySelector("li:first-child");
+firstLanguage.outerHTML = '<li> Deno Js </li>';
+
+
+//remove element
+
+const secondLanguage = document.querySelector("li:nth-child(2)");
+secondLanguage.remove();
+ 
+
+
+
+
+</script>
+
+</html>
