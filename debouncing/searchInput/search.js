@@ -1,11 +1,41 @@
 
+const createTableCell = (content, isImage = false, classname = "") => {
+    const cell = document.createElement("td");
+
+    if(isImage) {
+        const img = document.createElement("IMG");
+        img.setAttribute("src", content);
+        img.classList.add(classname);
+        cell.appendChild(img);
+    }
+    else{
+        const textNode = document.createTextNode(content); // Create a text node
+        cell.appendChild(textNode );
+    }
 
 
+    return cell;
+}
 
 const showFoundResult = (result) => {
-  
+    console.log(result);
 
-   
+    const tableBody = document.getElementById("table-body");
+    let i = 1;
+
+    tableBody.innerHTML = "";
+
+    result.forEach(item => {
+        const tableRow = document.createElement("tr");
+
+        tableRow.appendChild(createTableCell(i++));
+        tableRow.appendChild(createTableCell(item.image, true, "prodImage"));
+        tableRow.appendChild(createTableCell(item.title));
+        tableRow.appendChild(createTableCell(item.category));
+        tableRow.appendChild(createTableCell(`Rs. ${item.price}`))    
+
+        tableBody.appendChild(tableRow);
+    });
 }
 
 
@@ -32,7 +62,7 @@ const fetchApi = async (query) => {
         }
 
         else {
-            return;
+            document.getElementById("table-body").innerHTML = "";
         }
     } catch (error) {
         console.error("Error fetching data:", error);
