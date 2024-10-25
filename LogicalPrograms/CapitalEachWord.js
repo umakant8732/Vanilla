@@ -9,8 +9,6 @@ for (let i = 0; i < Str.length; i++) {
   else {
     result += Str[i]
   }
-   
-
 }
 
 console.log(result);
